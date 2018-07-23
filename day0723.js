@@ -12,10 +12,17 @@ function solution ( n ) {
 			ar.push( i );
 		}
 	}
-	ar.forEach(item => {
-		sum += item;
-	});
-	return sum;
+	// ar.forEach(item => {
+	// 	sum += item;
+	// });
+	// return sum;
+	// 
+	// there is a function named 'reduce' to reduce program code
+	// 
+	return ar.reduce( (total, currentValue, currentIndex, arr) => {
+		return total + currentValue;
+	} );
+	
 }
 
 console.log( solution(10) );
