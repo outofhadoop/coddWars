@@ -11,15 +11,23 @@
  // return masked string
 function maskify(cc) {
   var c = cc.toString();
-  if ( c.length <=4 ) {
+  let s = "";
+  if ( c.length < 4 ) {
   	return c;
   } else {
-  	for (var i = 0; i <= c.length - 4; i--) {
-  		c.splice(i, 1);
-  		console.log(c)
+  	for (let i = 0; i < c.length - 4; i++) {
+  		s = s + "#";
   	}
-  	return c;
+  	console.log( s );
+  	let a = c.slice(c.length - 4);
+  	console.log( s + a )
+  	return s + a;
   }
 }
 
 console.log(maskify('111111111'));
+
+// best answer
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
